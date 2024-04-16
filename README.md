@@ -1,1 +1,1 @@
-# ai
+The repository contains my research on the subjects of AI and creating a personal assistant. The code within this repository consists of code from other developers, which I have tailored to fulfill my particular requirements.

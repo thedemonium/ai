@@ -1,0 +1,3 @@
+services:
+  crewai-telegram:
+    image: "crewai-telegram"

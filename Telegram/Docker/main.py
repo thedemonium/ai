@@ -7,6 +7,7 @@ from langchain_community.llms import Ollama
 
 model_name = os.environ.get("MODEL_NAME", "demonium:cpu")
 model_url = os.environ.get("MODEL_URL", "http://100.107.6.134:11434")
+ttoken = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 os.environ["OPENAI_API_KEY"] = ""
 
 ollama_llm = Ollama(model=model_name, base_url=model_url)
@@ -67,7 +68,7 @@ async def echo(update: Update, context: CallbackContext) -> None:
 
 def main() -> None:
     """Start the bot."""
-    application = Application.builder().token('6779511833:AAFGRReGWENDb9xgCLZuGPTa7khH79Ta0LA').build()
+    application = Application.builder().token(ttoken).build()
     application.add_handler(CommandHandler("start", start))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
     application.run_polling()
